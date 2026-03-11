@@ -60,15 +60,10 @@ export function MainContent({ user, project }: MainContentProps) {
               <div className="h-full flex flex-col bg-white">
                 {/* Top Bar */}
                 <div className="h-14 border-b-2 border-black px-6 flex items-center justify-between bg-lime-50">
-                  <Tabs
-                    value={activeView}
-                    onValueChange={(v) =>
-                      setActiveView(v as "preview" | "code")
-                    }
-                  >
+                  <Tabs value={activeView}>
                     <TabsList>
-                      <TabsTrigger value="preview">Preview</TabsTrigger>
-                      <TabsTrigger value="code">Code</TabsTrigger>
+                      <TabsTrigger value="preview" onClick={() => setActiveView("preview")}>Preview</TabsTrigger>
+                      <TabsTrigger value="code" onClick={() => setActiveView("code")}>Code</TabsTrigger>
                     </TabsList>
                   </Tabs>
                   <HeaderActions user={user} projectId={project?.id} />
